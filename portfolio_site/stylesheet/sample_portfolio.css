@@ -200,7 +200,7 @@ footer {
         display: none;
     }
     body { /*Static background image for screens under 767px*/
-        background: url('/Users/Happy/OneDrive/One Drive/Documents/GitHub/CodeHappy01.github.io/portfolio_site/images/static_bg.jpg');
+        background: url('../images/static_bg.jpg');
         background-size: cover;
     }
 }
