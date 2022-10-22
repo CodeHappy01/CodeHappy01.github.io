@@ -28,9 +28,9 @@ h1 {
     font-family: "Trebuchet MS", Optima; /* Sets the font family of all h1 headings */
     text-align: center; /* Centering all h1 elements */
     margin-top: 3%; /* Adds a small margin above h1 elements */
-    color: rgb(77, 255, 181); 
+    color: white; 
     text-decoration: underline white;
-    text-shadow: 2px 0 white;
+    text-shadow: 0px 1px 4px white, 0px 3px rgb(255, 49, 238), 0px -2px rgb(0, 255, 242);
 }
 
 /* Heading 1 element hover effect */
@@ -42,7 +42,7 @@ h1:hover {
 
 /* Styling for Portfolio Title Text */
 .white-text {
-    color: rgb(77, 255, 181);/* This is used to change the color of the Portfolio Title text */
+    color: rgb(0, 255, 242);/* This is used to change the color of the Portfolio Title text */
     padding-top: 10vh; /* Adds padding (equal to 10% of the viewport height) to the top of the Portfolio Title text */
     scale: 1.5;
     text-decoration: none;
@@ -52,7 +52,6 @@ h1:hover {
     margin-right: auto;
     font-family:monospace;
     text-decoration: underline white;
-    text-shadow: 2px 0 white;
 }
 
 /* Paragraph elements */
@@ -84,7 +83,7 @@ p:hover {
 
 /* Anchor elements */
 a {
-    color: rgb(255, 255, 255); /* This ensures all links are blue */
+    color: rgb; /* This ensures all links are blue */
     cursor: pointer; /* This ensures all links change the mouse to a pointer when hovered over or clicked */
     text-decoration: underline; /* This ensures all links are underlined */
 }
@@ -113,7 +112,7 @@ img:hover {
 footer {
     padding: 2%; /* This gives the footer padding that is equal to 2% of the width of the element's area */
     background-color: rgba(0, 0, 0, 0.8);
-    color: rgb(77, 255, 181);
+    color: rgb(0, 255, 242);
 }
 /***** End of General Styling *****/
 
@@ -139,7 +138,7 @@ footer {
 .Navbar a {
     float: left; /* This specifies that the text floats on the left on the navbar */
     display: block; /* This ensures that other text will be displayed on the same line or row, instead of a new line */
-    color: rgb(77, 255, 181); /* This is the font color for text on our navbar */
+    color: rgb(0, 255, 242); /* This is the font color for text on our navbar */
     padding: .75vw 1vw; /* This adds padding around our text */
     text-decoration: none; /* This gets rid of the underlines under the text on our navbar */
     font-family: Avant Garde, Helvetica; /* This specifies the font family for text on our navbar */
@@ -180,18 +179,36 @@ footer {
     min-width: 100%; /* This ensures the video is displayed across the full width of the page */
     z-index: -1; /* This places the video behind the other elements on the page */
 }
+/* Scales the height when width is too wide */
+@media (min-aspect-ratio: 16/9) {
+    #Typing_Video {
+        width: 100%;
+        height: auto;
+    }
+}
+/* Scales the width when wieght is too high */
+@media (max-aspect-ratio: 16/9) {
+    #Typing_Video {
+        width: auto;
+        height: 100%;
+    }
+}
 
-/* Screens that are 576px and smaller will not display the background video */
-@media screen and (max-width: 576px) {
+/* Screens that are 767px and smaller will not display the background video */
+@media screen and (max-width: 767px) {
     #Typing_Video {
         display: none;
+    }
+    body { /*Static background image for screens under 767px*/
+        background: url('/Users/Happy/OneDrive/One Drive/Documents/GitHub/CodeHappy01.github.io/portfolio_site/images/static_bg.jpg');
+        background-size: cover;
     }
 }
 
 /* Texts over the video */
 .Video_Text {
     background: rgba(0, 0, 0, 0.5); /* This provides a semi-transparents background for the text to sit over */
-    color: rgb(77, 255, 181); /* Makes the font color white */
+    color: rgb(0, 255, 242); /* Makes the font color white */
     width: 100%; /* Ensures the video-text container fills the width of the video */
     height: 100vh; /* This ensures the video-text container fills the height of the viewport so that the slideshow is not partially displayed */
     padding-top: 2vh; /* This adds padding around the video-text container so that the background goes slightly beyond the text */
@@ -245,7 +262,7 @@ footer {
     top: 50%; /* This moves the buttons up in the slideshow container */
     width: auto; /* The width of the buttons is automatically adjusted based on the content */
     padding: 2vw; /* Adds padding equal to 2% of the viewport width */
-    color: rgb(77, 255, 181); 
+    color: rgb(0, 255, 242); 
     font-weight: bold;
     font-size: 1.5vw;
     border-radius: 0 3px 3px 0; /* Adds a slightly rounded border on the top and bottom right corners */
@@ -267,7 +284,7 @@ footer {
 
 /* Slideshow text */
 .text {
-    color: rgb(77, 255, 181); 
+    color: white; 
     padding: 1vw;
     position: absolute; /* This ensures the text is positioned within the image */
     bottom: 0; /* This property sets the text at the bottom of the image */
@@ -296,7 +313,7 @@ footer {
 
 /* Hover effect for slideshow dots */
 .active, .dot:hover {
-    background-color: rgb(77, 255, 181); /* Sets the color of the dots when active or hovered over */
+    background-color: rgb(0, 255, 242); /* Sets the color of the dots when active or hovered over */
 }
 
 /* Fading animation for slideshow */
@@ -329,7 +346,7 @@ footer {
     padding: 1.6%;
     height: 450px; /* This sets the height of the column to 400px -  this may need to be adjusted depending on the text you enter */
     background-color: rgb(16, 24, 44); /* Sets the background color of the left columns */
-    color: rgb(77, 255, 181);
+    color: rgb(255, 255, 255);
 }
 
 .Column_2 {
@@ -356,8 +373,8 @@ footer {
     right: 1.75vw; /* Positions the viewport slightly right from the side of the viewport */
     width: 25vw; /* Sets the width relative to the viewport width */
     background-color: rgb(16, 24, 44); /* Sets the background color of the button to white */
-    color: rgb(77, 255, 181); /* Sets the color of the button text to black */
-    border: solid rgb(255, 255, 255); /* This makes a solid black border around the button */
+    color: rgb(0, 255, 242); /* Sets the color of the button text to black */
+    border: solid rgb(255, 49, 238); /* This makes a solid black border around the button */
     cursor: pointer; /* This changes the cursor when hovered over the button to a pointer */
     -webkit-animation: movePopup 5s; /* Animation for 5 seconds for Safari 4.0-8.0 */
     animation: movePopup 5s; /* Animation set for 5 seconds */
@@ -401,7 +418,7 @@ footer {
 }
 
 label {
-    color: rgb(77, 255, 181);
+    color: rgb(255, 255, 255);
 }
 
 /* General styling for all buttons */
@@ -418,26 +435,26 @@ button {
 
 /* Hover effect for contact and submit buttons */
 button:hover, .form-container .btn:hover {
-    color: white; /* This makes the text in the buttons white when hovered over */
+    color: rgb(255, 49, 238); /* This makes the text in the buttons white when hovered over */
     background-color: rgb(16, 24, 44); /* The background of the button changes to black when hovered over */
     transition-duration: 1s; /* This makes the transition last 1 second */
     -webkit-transition-duration: 1s; /* For Safari 4.0-8.0 */
-    border-color: rgb(77, 255, 181); /* The border turns silver when the button is hovered over */
+    border-color: rgb(0, 255, 242); /* The border turns silver when the button is hovered over */
 }
 
 /* Submit button */
 .form-container .btn {
     background-color: rgb(16, 24, 44); 
-    color: rgb(77, 255, 181);
-    border-color: white;
+    color: rgb(0, 255, 242);
+    border-color: rgb(255, 49, 238);
     margin-bottom: 1vh; /* Adds space between the submit button and the close button */
 }
 
 /* Close button */
 .form-container .cancel {
     background-color: black;
-    color: white;
-    border-color: gray;
+    color: rgb(0, 255, 242);
+    border-color: rgb(255, 49, 238);
 }
 
 /* Styling for close button on hover */
@@ -516,7 +533,7 @@ button:hover, .form-container .btn:hover {
 }
 
 /* Media rules to enlarge the font of the white text for smaller screens */
-@media screen and (max-width: 1080px) {
+/*@media screen and (max-width: 1080px) {
     .quote{
         font-size: 3.5vw;
     }
@@ -525,7 +542,7 @@ button:hover, .form-container .btn:hover {
         font-size: 4.5vw;
     }
 }
-
+*/
 /* Media rules to increase the size of the columns for larger screens */
 @media screen and (min-width: 1725px) {
     .Column_1 {
