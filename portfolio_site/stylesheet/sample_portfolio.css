@@ -30,7 +30,7 @@ h1 {
     margin-top: 3%; /* Adds a small margin above h1 elements */
     color: white; 
     text-decoration: underline white;
-    text-shadow: 0px 1px 4px white, 0px 3px rgb(255, 49, 238), 0px -2px rgb(0, 255, 242);
+    text-shadow: 0vw .1vw .4vw white, 0vw .1vw rgb(255, 49, 238), 0vw -.1vw rgb(0, 255, 242);
 }
 
 /* Heading 1 element hover effect */
@@ -96,7 +96,7 @@ q {
 /* Image elements */
 img {
     filter: grayscale(15%); /* This rids our pictures of 75% of their color */
-    border-radius: 8px; /* Gives all images slightly rounded corners */
+    border-radius: .5vh; /* Gives all images slightly rounded corners */
     max-width: 100%; /* Ensures all images stay within the width of their container */
     max-height: 100%; /* Ensures all images stay within the height of their container */
     display: block; /* By specifying block display we can ensure our images are able to be centered */
@@ -151,22 +151,23 @@ footer {
 
 /* The animation effect for moving the nav bar links in from above the top of the screen on page load */
 @keyframes moveNavText {
-    from {top: -100vw;} /* This sets the navbar text 100% above the viewport */
-    to {top: 0vw;} /* This lowers the navbar text onto the navbar */
+    from {opacity: 0;} /* This sets the navbar text opacity to zero */
+    to {opacity: 1;} /* This sets the navbar text opacity to 1 (shows) */
 }
 
 /*Navbar hover effects */
 .Navbar a:hover {
-    background-color: #f4f4f4; /* Defines the background color that will display when you hover over the link */
-    color: black; /* This defines the font color that will display when navbar a elements are hovered over */
-    font-weight: bold; /* This makes the text on the navbar bold when hovered over */
-    cursor: pointer;
-    transition: 0.5s ease-in; /* Creates a smooth transition for the hover trigger */
+        color: rgb(255, 49, 238); /* This makes the text in the buttons white when hovered over */
+        background-color: rgb(16, 24, 44)!important; /* The background of the button changes to black when hovered over */
+        transition-duration: 1s; /* This makes the transition last 1 second */
+        -webkit-transition-duration: 1s; /* For Safari 4.0-8.0 */
+        border-color: rgb(0, 255, 242)!important; /* The border turns silver when the button is hovered over */
 }
 
 /* Navbar home button */
 .Navbar a.active { /* This targets the a element on the navbar with the "active" class */
-    background-color: darkgray;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid .1vh rgb(255, 49, 238);
 }
 /***** End of Navbar Styling *****/
 
@@ -210,23 +211,35 @@ footer {
     background: rgba(0, 0, 0, 0.5); /* This provides a semi-transparents background for the text to sit over */
     color: rgb(0, 255, 242); /* Makes the font color white */
     width: 100%; /* Ensures the video-text container fills the width of the video */
-    height: 100vh; /* This ensures the video-text container fills the height of the viewport so that the slideshow is not partially displayed */
+    height: auto; /* This ensures the video-text container fills the height of the viewport so that the slideshow is not partially displayed */
     padding-top: 2vh; /* This adds padding around the video-text container so that the background goes slightly beyond the text */
     position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animation below */
     -webkit-animation: moveVideoText 5.75s; /* Animation for Safari 4.0 - 8.0 */
     animation: moveVideoText 5.75s; /* moveVideoText animation set to 5.75s to match the movenavText animation */
+    bottom:0;
 }
 
-/* This animation effect causes the overlay video text to move up from the bottom of the page upon page load */
+.Video_Text img {
+    bottom:0;
+}
+
+/* This animation effect causes the overlay video text to fade in upon page load */
 @keyframes moveVideoText {
-    from {top: -100vw;} /* This sets the position of the video text to above the viewport */
-    to {top: 0vw;} /* This moves the video text to the normal positioning on the viewport */
+    from {opacity: 0; filter: blur(25vw);} /* This sets the navbar text opacity to zero */
+    to {opacity: 1; filter: blur(0);} /* This sets the navbar text opacity to 1 (shows) */
 }
 /***** End of Video Styling *****/
 
 /***** Slideshow Styling *****/
 #Slideshow_Background {
-    background: rgba(0, 0, 0, 0.8); /* This creates a slightly transparent white background that's palced over the video in the background */    
+    background: rgba(0, 0, 0, 0.75); /* This creates a slightly transparent white background that's palced over the video in the background */    
+    -webkit-animation: fadeBG 5.25s; /* Animation for Safari 4.0 - 8.0 */
+    animation: fadeBG 5.25s; /* moveVideoText animation set to 5.75s to match the movenavText animation */
+}
+
+@keyframes  fadeBG {
+    from {opacity: 0;} /* This sets the navbar text opacity to zero */
+    to {opacity: 1; } /* This sets the navbar text opacity to 1 (shows) */
 }
 
 .mySlides{
@@ -251,7 +264,7 @@ footer {
 .Slideshow_Images {
     vertical-align: middle; /* This centers the images vertically within the slideshow container */
     height: auto; /* The height of the images is automatically adjusted based on the content, ie if your images are different sizes, they will display as different sizes */
-    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75); /* Adds a shadow around the slideshow images */
+    box-shadow: 0px .5vh 1 1.2vh rgba(0, 0, 0, .75); /* Adds a shadow around the slideshow images */
     width: 100%; /* The width of the images is automatically adjusted based on the content */
 }
 
@@ -261,11 +274,11 @@ footer {
     position: absolute; /* This makes the next and previous buttons positioned relative to the slideshow container */
     top: 50%; /* This moves the buttons up in the slideshow container */
     width: auto; /* The width of the buttons is automatically adjusted based on the content */
-    padding: 2vw; /* Adds padding equal to 2% of the viewport width */
+    padding: .5vw; /* Adds padding equal to 2% of the viewport width */
     color: rgb(0, 255, 242); 
     font-weight: bold;
-    font-size: 1.5vw;
-    border-radius: 0 3px 3px 0; /* Adds a slightly rounded border on the top and bottom right corners */
+    font-size: 2.25vw;
+    border-radius: 0 .2vw .2vw 0; /* Adds a slightly rounded border on the top and bottom right corners */
     user-select: none; /* This property makes it so that the user cannot highlight the text */
     transition: 0.6s ease; /* This specifies the details of the hover transition for these elements */
 }
@@ -273,13 +286,12 @@ footer {
 /* Positioning the next button on the right hand side */
 .Next {
     right: 0; /* This moves the next button to the right side of the slideshow container */
-    border-radius: 3px 0 0 3px; /* This changes the border radius on the next button to the top and bottom left of the button */
+    border-radius: .3vw 0 0 .3vw; /* This changes the border radius on the next button to the top and bottom left of the button */
 }
 
 /* Hover effect on slide show buttons */
 .Previous:hover, .Next:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Makes the background of the arrows a transparent gray color */
-    color: white; /* Makes the arrows white when hovered over */
+    color: rgb(255, 49, 238);  
 }
 
 /* Slideshow text */
@@ -295,7 +307,7 @@ footer {
     font-size: 1.5vw; /* Font size is relative to the size of the viewport width */
     background-color: rgba(0, 0, 0, 0.75); /* Gives a slightly transparent black background */
     font-weight: bold;
-    border-radius: 0px 0px 7px 7px; /* Gives the text background rounded corners on the bottom left and right corners */
+    border-radius: 0px 0px .5vh .5vh; /* Gives the text background rounded corners on the bottom left and right corners */
 }
 
 /* Styling of the dots under the slideshow */
@@ -347,14 +359,32 @@ footer {
     height: 450px; /* This sets the height of the column to 400px -  this may need to be adjusted depending on the text you enter */
     background-color: rgb(16, 24, 44); /* Sets the background color of the left columns */
     color: rgb(255, 255, 255);
+    -webkit-animation: fadeBG2 5.75s; /* Animation for Safari 4.0 - 8.0 */
+    animation: fadeBG2 5.75s;
 }
 
+
 .Column_2 {
+    display: flex;
+    justify-content: center;
     float: left;
     width: 50%;
     padding: 1.6%;
     height: 450px;
     background-color: rgba(0, 0, 0, 0.5);
+    -webkit-animation: fadeBG2 5.75s; /* Animation for Safari 4.0 - 8.0 */
+    animation: fadeBG2 5.75s; /* moveVideoText animation set to 5.75s to match the movenavText animation */
+}
+
+.Column_2 a {
+    display: flex;
+    justify-content: center;
+}
+
+
+@keyframes  fadeBG2 {
+    from {opacity: 0; filter: blur(25vw); } /* This sets column 2 images opacity to zero */
+    to {opacity: 1; filter: blur(0); } /* This sets column 2 images opacity to 1 (shows) */
 }
 
 /* This inserts something after the content of selected elements (in this case the elements with class "Row") */
@@ -372,9 +402,10 @@ footer {
     bottom: 1.75vw; /* Positions the button slightly up from the bottom of the viewport */
     right: 1.75vw; /* Positions the viewport slightly right from the side of the viewport */
     width: 25vw; /* Sets the width relative to the viewport width */
-    background-color: rgb(16, 24, 44); /* Sets the background color of the button to white */
+    background-color: rgba(16, 24, 44, 0.699); /* Sets the background color of the button to white */
     color: rgb(0, 255, 242); /* Sets the color of the button text to black */
-    border: solid rgb(255, 49, 238); /* This makes a solid black border around the button */
+    border: solid .1vh rgb(255, 49, 238); /* This makes a solid black border around the button */
+    border-radius: .2vh;
     cursor: pointer; /* This changes the cursor when hovered over the button to a pointer */
     -webkit-animation: movePopup 5s; /* Animation for 5 seconds for Safari 4.0-8.0 */
     animation: movePopup 5s; /* Animation set for 5 seconds */
@@ -447,6 +478,7 @@ button:hover, .form-container .btn:hover {
     background-color: rgb(16, 24, 44); 
     color: rgb(0, 255, 242);
     border-color: rgb(255, 49, 238);
+    border-radius: .2vh;
     margin-bottom: 1vh; /* Adds space between the submit button and the close button */
 }
 
@@ -454,7 +486,8 @@ button:hover, .form-container .btn:hover {
 .form-container .cancel {
     background-color: black;
     color: rgb(0, 255, 242);
-    border-color: rgb(255, 49, 238);
+    border: solid .1vh rgb(255, 49, 238);
+    border-radius: .2vh;
 }
 
 /* Styling for close button on hover */
@@ -464,6 +497,7 @@ button:hover, .form-container .btn:hover {
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
     border-color: black;
+    border-radius: .2vh;
 }
 /***** End of Contact Form Styling *****/
 
