@@ -108,6 +108,20 @@ img:hover {
 	filter: grayscale(5%);  /* Brings back most of the image's color when hovered over */
 }
 
+.gif {
+    filter: grayscale(15%); /* This rids our pictures of 75% of their color */
+    border-radius: .5vh; /* Gives all images slightly rounded corners */
+    max-width: 50%; /* Ensures all images stay within the width of their container */
+    max-height: 50%; /* Ensures all images stay within the height of their container */
+    display: block; /* By specifying block display we can ensure our images are able to be centered */
+    margin: auto auto auto auto; /* This centers all images */
+}
+
+/* Image element hover effects */
+.gif:hover {
+	filter: grayscale(5%);  /* Brings back most of the image's color when hovered over */
+}
+
 /*Styling for footer element */
 footer {
     padding: 2%; /* This gives the footer padding that is equal to 2% of the width of the element's area */
