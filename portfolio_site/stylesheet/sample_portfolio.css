@@ -83,7 +83,7 @@ p:hover {
 
 /* Anchor elements */
 a {
-    color: rgb; /* This ensures all links are blue */
+    color: rgb(0, 255, 242); /* This ensures all links are blue */
     cursor: pointer; /* This ensures all links change the mouse to a pointer when hovered over or clicked */
     text-decoration: underline; /* This ensures all links are underlined */
 }
@@ -575,7 +575,7 @@ button:hover, .form-container .btn:hover {
 /* Screens 1080px and smaller will display navbar links equally distributed */
 @media screen and (max-width: 1080px) {
     .Navbar a{
-        width: 20%; /* This sets each navbar link to 1/5 of the navbar */
+        width: 16%; /* This sets each navbar link to 1/5 of the navbar */
         font-size: 2.5vw;
     }
 }
